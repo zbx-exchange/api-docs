@@ -11,7 +11,7 @@ wss://ws.zbx.com/websocket
 
 ### 数据压缩
 
-WebSocket API 的所有数据都进行了 GZIP 压缩并使用二进制方式返回，需要 client 在收到二进制数据之后进行解压。
+WebSocket API 的所有数据都 GZIP 压缩之后再进行 Base64.encode() 编码并使用二进制方式返回，需要 client 在收到二进制数据之后进行解码解压。
 
 <br/>
 
