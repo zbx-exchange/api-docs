@@ -30,9 +30,9 @@ https://api.zbx.com
 
 API 访问密钥（accesskey）：您申请的 API Key 中的 Access Key。
 
-时间戳（nonce）：您应用程序发出请求的时间戳，13位毫秒数，Bision将根据这个时间戳检验您API请求的有效性。
+时间戳（nonce）：您应用程序发出请求的时间戳，13位毫秒数，ZBX将根据这个时间戳检验您API请求的有效性。
 
-签名(signature)：签名计算得出的值，用于确保签名有效和未被篡改，Bision使用 `HmacSHA256`。
+签名(signature)：签名计算得出的值，用于确保签名有效和未被篡改，ZBX使用 `HmacSHA256`。
 
 <br/>
 
@@ -881,7 +881,7 @@ nonce | integer | true | N/A | 13位毫秒数 |
 accesskey | string | true | N/A | 访问密钥 | 
 nonce | integer | true | N/A | 13位毫秒数 | 
 coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-address | string | true | N/A | 提现地址 | 仅支持您在Bision的认证地址
+address | string | true | N/A | 提现地址 | 仅支持您在ZBX的认证地址
 amount | float | true | N/A | 提现数量 | 不能低于当前币种最低提现额度
 safePwd | string | true | N/A | 安全密码 | 
 memo | string | false | Null | 备注信息 | 
