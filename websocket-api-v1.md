@@ -18,7 +18,7 @@ WebSocket API 的所有数据都进行了 GZIP 压缩并使用二进制方式返
 ### 心跳消息
 
 
-当用户的Websocket客户端连接到Bision Websocket服务器后，服务器会定期（当前设为5秒）向其发送ping消息并包含一个时间戳，
+当用户的Websocket客户端连接到ZBX Websocket服务器后，服务器会定期（当前设为5秒）向其发送ping消息并包含一个时间戳，
 
 当用户接收到此心跳消息后，应及时返回pong消息并包含同一时间戳，格式如：
 
@@ -36,7 +36,7 @@ WebSocket API 的所有数据都进行了 GZIP 压缩并使用二进制方式返
 
 ### 断开连接
 
-用户主动断开或者主动向Bision Websocket服务器发送消息`close`；
+用户主动断开或者主动向ZBX Websocket服务器发送消息`close`；
 
 <br/>
 
