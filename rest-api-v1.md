@@ -538,7 +538,6 @@ Note that data participates in signing not the JSON data itself, but STRING afte
 > Request parameters
 
 Parameters | Data Type | Necessity | Default Value | Description | Range of Value,
-
 -|-|-|-|-|-
 accesskey | string | true | N/A | Access Key | 
 nonce | integer | true | N/A | 13-Bit Millisecond | 
@@ -578,7 +577,6 @@ id | integer | true | N/A | Order ID|
 > Request parameters
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-
 -|-|-|-|-|-
 accesskey | string | true | N/A | Access key | 
 nonce | integer | true | N/A | 13-bit milliseconds | 
@@ -898,7 +896,6 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 > Request parameters
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-
 -|-|-|-|-|-
 accesskey | string | true | N/A | Access key | 
 nonce | integer | true | N/A | 13-bit milliseconds | 
