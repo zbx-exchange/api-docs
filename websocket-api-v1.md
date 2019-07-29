@@ -89,13 +89,13 @@ The format of unsubscribe is as follows：
 
 **K-line data**
 
-Subscribe
+> Subscribe
 
 ``
    {"channel":"ex_chart_update","market":{Market},"since":{Since},"interval":{Interval},"event":"addChannel"}
 ``
 
-Unsubscribe
+> Unsubscribe
 
 ``
    {"channel":"ex_chart_update","market":{Market},"interval":{Interval},"event":"removeChannel"}
@@ -134,13 +134,13 @@ Explanation: After a successful subscription, the user will return a full amount
 
 **Aggregate Market（Ticker）**
 
-Subscribe
+> Subscribe
 
 ``
    {"channel":"ex_single_market","market":{Market},"event":"addChannel"}
 ``
 
-Unsubscribe
+> Unsubscribe
 
 ``
    {"channel":"ex_single_market","market":{Market},"event":"removeChannel"}
@@ -170,13 +170,13 @@ market | string | true | N/A | Trading Markets | btc_usdt, eth_usdt...
 
 **Group Aggregation Market（Tickers)**
 
-Subscribe
+> Subscribe
 
 ``
    {"channel":"ex_group_market","group":{Group},"event":"addChannel"}
 ``
 
-unsubscribe
+> unsubscribe
 
 ``
    {"channel":"ex_group_market","group":{Group},"event":"removeChannel"}
@@ -206,13 +206,13 @@ group | string | false | all | Group type | all or trading area (e.g. usdt) or t
 
 **Market Depth**
 
-Subscription
+> Subscription
 
 ``
    {"channel":"ex_depth_data","market":{Market},"event":"addChannel"}
 ``
 
-unsubscribe
+> unsubscribe
 
 ``
   {"channel":"ex_depth_data","market":{Market},"event":"removeChannel"}
@@ -248,13 +248,13 @@ market | string | true | N/A | Trading Market | btc_usdt, eth_usdt...
 
 **The latest transaction in the market**
 
-Subscribe
+> Subscribe
 
 ``
    {"channel":"ex_last_trade","market":{Market},"since":0,"event":"addChannel"}
 ``
 
-Unsubscribe
+> Unsubscribe
 
 ``
   {"channel":"ex_last_trade","market":{Market},"event":"removeChannel"}

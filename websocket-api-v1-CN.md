@@ -89,13 +89,13 @@ WebSocket API 的所有数据都 GZIP 压缩之后再进行 Base64.encode() 编�
 
 **K线数据**
 
-订阅
+> 订阅
 
 ``
    {"channel":"ex_chart_update","market":{Market},"since":{Since},"interval":{Interval},"event":"addChannel"}
 ``
 
-退订
+> 退订
 
 ``
    {"channel":"ex_chart_update","market":{Market},"interval":{Interval},"event":"removeChannel"}
@@ -134,13 +134,13 @@ since | integer | true | 0 | 时间条件 | 0或需要的时间节点的时间�
 
 **聚合行情（Ticker）**
 
-订阅
+> 订阅
 
 ``
    {"channel":"ex_single_market","market":{Market},"event":"addChannel"}
 ``
 
-退订
+> 退订
 
 ``
    {"channel":"ex_single_market","market":{Market},"event":"removeChannel"}
@@ -170,13 +170,13 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 
 **分组聚合行情（Tickers）**
 
-订阅
+> 订阅
 
 ``
    {"channel":"ex_group_market","group":{Group},"event":"addChannel"}
 ``
 
-退订
+> 退订
 
 ``
    {"channel":"ex_group_market","group":{Group},"event":"removeChannel"}
@@ -206,13 +206,13 @@ group | string | false | all | 分组类型 | all或交易区(如：usdt)或交�
 
 **市场深度**
 
-订阅
+> 订阅
 
 ``
    {"channel":"ex_depth_data","market":{Market},"event":"addChannel"}
 ``
 
-退订
+> 退订
 
 ``
   {"channel":"ex_depth_data","market":{Market},"event":"removeChannel"}
@@ -248,13 +248,13 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 
 **市场最新成交**
 
-订阅
+> 订阅
 
 ``
    {"channel":"ex_last_trade","market":{Market},"since":0,"event":"addChannel"}
 ``
 
-退订
+> 退订
 
 ``
   {"channel":"ex_last_trade","market":{Market},"event":"removeChannel"}

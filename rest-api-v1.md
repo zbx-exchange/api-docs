@@ -634,7 +634,6 @@ pageSize | integer | false | 10 | order number | [10-1000]
 
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-
 -|-|-|-|-|-
 accesskey | string | true | N/A | Access key | 
 nonce | integer | true | N/A | 13-bit milliseconds | 
@@ -687,7 +686,7 @@ Note that data participates in signing not the JSON data itself, but STRING afte
 
 <br/>
 
-**Get the replenishment address (In testing)**
+**Get the deposit address (In testing)**
 
 ``
     GET /trade/api/v1/getPayInAddress
@@ -727,7 +726,7 @@ coin | string | true | N/A | Name of currency | btc,eth,ltc...
 
 <br/>
 
-**Get the cash address (In testing)**
+**Get the withdraw address (In testing)**
 
 ``
     GET /trade/api/v1/getPayOutAddress
