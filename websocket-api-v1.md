@@ -176,7 +176,7 @@ market | string | true | N/A | Trading Markets | btc_usdt, eth_usdt...
    {"channel":"ex_group_market","group":{Group},"event":"addChannel"}
 ``
 
-> unsubscribe
+> Unsubscribe
 
 ``
    {"channel":"ex_group_market","group":{Group},"event":"removeChannel"}
@@ -212,7 +212,7 @@ group | string | false | all | Group type | all or trading area (e.g. usdt) or t
    {"channel":"ex_depth_data","market":{Market},"event":"addChannel"}
 ``
 
-> unsubscribe
+> Unsubscribe
 
 ``
   {"channel":"ex_depth_data","market":{Market},"event":"removeChannel"}
