@@ -104,7 +104,6 @@ Unsubscribe
 > Request parameters
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-  
 -|-|-|-|-|-
 market | string | true | N/A | Trading Markets | btc_usdt, eth_usdt...
 interval | string | true | N/A | K-Line Type | 1min,5min,15min,30min,1hour,6hour,1day,7day,30day
@@ -127,7 +126,7 @@ since | integer | true | 0 | Time Conditions | 0 or Time Stamps of Necessary Tim
 ```
 
 ``
-    Explanation: After a successful subscription, the user will return a full amount of data filtered according to since, and there is a field in the data that isFull is true as an identifier. After that, once there is an update, the Websocket client will receive incremental messages pushed by the server.
+Explanation: After a successful subscription, the user will return a full amount of data filtered according to since, and there is a field in the data that isFull is true as an identifier. After that, once there is an update, the Websocket client will receive incremental messages pushed by the server.
 
 ``
 
@@ -167,7 +166,7 @@ market | string | true | N/A | Trading Markets | btc_usdt, eth_usdt...
 
 <br/>
 
-**Group Aggregation Market（Tickers**
+**Group Aggregation Market（Tickers)**
 
 Subscribe
 ``
@@ -216,7 +215,6 @@ unsubscribe
 > Request parameters
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-
 -|-|-|-|-|-
 market | string | true | N/A | Trading Market | btc_usdt, eth_usdt...
 
@@ -275,5 +273,5 @@ since | integer | true | 0 | Time Conditions | Time Stamps of 0 or Necessary Tim
 }
 ```
 ``
-    Explanation: Once the subscription is successful, the user will return a full amount of data filtered according to since, and there is an isFull field in the data as an identifier for true. After that, once updated, the Websocket client will receive incremental messages pushed by the server。
+Explanation: Once the subscription is successful, the user will return a full amount of data filtered according to since, and there is an isFull field in the data as an identifier for true. After that, once updated, the Websocket client will receive incremental messages pushed by the server。
 ``

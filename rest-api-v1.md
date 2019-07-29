@@ -90,9 +90,7 @@ All interface returns are in JSON format
     "minAmount": 0.00010,       // Minimum order quantity
     "pricePoint": 2,            // Price decimal point
     "coinPoint": 4,             // Number decimal point
-
     "maker": 0.00100000,        // Active Single Transaction Fee
-
     "taker": 0.00100000         // Passive single transaction fee
 
   }
@@ -125,7 +123,6 @@ All interface returns are in JSON format
 
 
 Parameters | data types | whether they must | default values | descriptions | range of values
-  
 -|-|-|-|-|-
 market | string | true | N/A | Trading market | btc_usdt, eth_usdt...
 type | string | true | N/A | K-line type | 1min,5min,15min,30min,1hour,6hour,1day,7day,30day
@@ -302,7 +299,7 @@ market | string | true | N/A | Market | btc_usdt, eth_usdt...
 
 ### Transaction API
 
-** Get server time (no signature required) request parameters**
+**Get server time (no signature required) request parameters**
 
 ``
     GET /trade/api/v1/getServerTime
@@ -326,7 +323,7 @@ market | string | true | N/A | Market | btc_usdt, eth_usdt...
 ```
 <br/>
 
-** Acquisition of account assets**
+**Acquisition of account assets**
 
 ``
     GET /trade/api/v1/getBalance
@@ -742,7 +739,6 @@ coin | string | true | N/A | Name of currency | btc,eth,ltc...
 > Request parameters
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-
 -|-|-|-|-|-
 accesskey | string | true | N/A | Access key | 
 nonce | integer | true | N/A | 13-bit milliseconds | 
@@ -786,7 +782,6 @@ pageSize | integer | true | 10 | number of pages per page|
 > Request parameters
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-
 -|-|-|-|-|-
 accesskey | string | true | N/A | Access key | 
 nonce | integer | true | N/A | 13-bit milliseconds | 
@@ -831,7 +826,6 @@ pageSize | integer | true | 10 | number of pages per page |
 > Request parameters
 
 Parameters | Data Types | Necessity | Default Value | Description | Range of Value
-
 -|-|-|-|-|-
 accesskey | string | true | N/A | Access key | 
 nonce | integer | true | N/A | 13-bit milliseconds | 
