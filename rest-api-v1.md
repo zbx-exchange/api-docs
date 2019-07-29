@@ -235,7 +235,6 @@ market | string | true | N/A | Trading Market | btc_usdt, eth_usdt...
 ```js
 {
   "last": 11591.26,     // Latest Transaction Price
-
   "asks": [
     [
       11594.80,
@@ -415,14 +414,13 @@ data | string | true | N/A | Order Data |
 
 ```
 Supporting only Price-Limiting delegation, one transaction, either succeeds or fails
-Supporting only Price-Limiting delegation, one transaction, either succeeds or fails
 
 Data is a JSON array. The maximum length of the array is only 100, and more than 100 elements will be ignored. The format of the array elements is as follows:
 
 {
   "price": 1000,
   "amount": 1,
-  "type" : 1    // 1、purchase 0、sale 
+  "type" : 1    // 1、buy 0、sell 
 }
 
 After assembly, the JSON array is converted to STRING and Base64. Encode () is the final data to be submitted.
@@ -496,7 +494,6 @@ data | string | true | N/A | Order Data |
 
 ```
 Data is a JSON array. The maximum length of the array is only 100, and more than 100 elements are ignored. The array elements are formatted as order ID, such as:
-
 
 [123, 456, 789]
 

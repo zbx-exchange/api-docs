@@ -135,11 +135,13 @@ Explanation: After a successful subscription, the user will return a full amount
 **Aggregate Market（Ticker）**
 
 Subscribe
+
 ``
    {"channel":"ex_single_market","market":{Market},"event":"addChannel"}
 ``
 
 Unsubscribe
+
 ``
    {"channel":"ex_single_market","market":{Market},"event":"removeChannel"}
 ``
@@ -169,11 +171,13 @@ market | string | true | N/A | Trading Markets | btc_usdt, eth_usdt...
 **Group Aggregation Market（Tickers)**
 
 Subscribe
+
 ``
    {"channel":"ex_group_market","group":{Group},"event":"addChannel"}
 ``
 
 unsubscribe
+
 ``
    {"channel":"ex_group_market","group":{Group},"event":"removeChannel"}
 ``
@@ -203,11 +207,13 @@ group | string | false | all | Group type | all or trading area (e.g. usdt) or t
 **Market Depth**
 
 Subscription
+
 ``
    {"channel":"ex_depth_data","market":{Market},"event":"addChannel"}
 ``
 
 unsubscribe
+
 ``
   {"channel":"ex_depth_data","market":{Market},"event":"removeChannel"}
 ``
@@ -243,11 +249,13 @@ market | string | true | N/A | Trading Market | btc_usdt, eth_usdt...
 **The latest transaction in the market**
 
 Subscribe
+
 ``
    {"channel":"ex_last_trade","market":{Market},"since":0,"event":"addChannel"}
 ``
 
 Unsubscribe
+
 ``
   {"channel":"ex_last_trade","market":{Market},"event":"removeChannel"}
 ``
@@ -273,5 +281,5 @@ since | integer | true | 0 | Time Conditions | Time Stamps of 0 or Necessary Tim
 }
 ```
 ``
-Explanation: Once the subscription is successful, the user will return a full amount of data filtered according to since, and there is an isFull field in the data as an identifier for true. After that, once updated, the Websocket client will receive incremental messages pushed by the server。
+	Explanation: Once the subscription is successful, the user will return a full amount of data filtered according to since, and there is an isFull field in the data as an identifier for true. After that, once updated, the Websocket client will receive incremental messages pushed by the server。
 ``
