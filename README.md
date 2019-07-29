@@ -11,4 +11,5 @@ It is suggested that developers use Rest API when they perform currency trading 
 
 ```js
 If you encounter any problems during use, please add technology QQ group: ZBX API exchange group (1) 88888888 (please specify user name and programming language when adding group),
-We will try our best to help you with your doubts.```
+We will try our best to help you with your doubts.
+```

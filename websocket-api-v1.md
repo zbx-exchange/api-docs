@@ -13,6 +13,7 @@ wss://ws.zbx.com/websocket
 ### Data compression
 
 All data of Websocket API is compressed by GZIP and then encoded by Base64. encode () and returned by binary mode. Client is required to decode and decompress the binary data after receiving it.
+
 <br/>
 
 ### Heart beat news
@@ -86,7 +87,7 @@ The format of unsubscribe is as follows：
 <br/>
 
 
-** K-line data**
+**K-line data**
 
 Subscribe
 
@@ -132,7 +133,7 @@ since | integer | true | 0 | Time Conditions | 0 or Time Stamps of Necessary Tim
 
 <br/>
 
-** Aggregate Market（Ticker）**
+**Aggregate Market（Ticker）**
 
 Subscribe
 ``
@@ -166,7 +167,7 @@ market | string | true | N/A | Trading Markets | btc_usdt, eth_usdt...
 
 <br/>
 
-** Group Aggregation Market（Tickers）**
+**Group Aggregation Market（Tickers**
 
 Subscribe
 ``
@@ -200,7 +201,7 @@ group | string | false | all | Group type | all or trading area (e.g. usdt) or t
 
 <br/>
 
-** Market Depth**
+**Market Depth**
 
 Subscription
 ``
@@ -241,7 +242,7 @@ market | string | true | N/A | Trading Market | btc_usdt, eth_usdt...
 
 <br/>
 
-** The latest transaction in the market**
+**The latest transaction in the market**
 
 Subscribe
 ``

@@ -71,7 +71,7 @@ All interface returns are in JSON format
 ### Market data
 
 
-** Trading market allocation**
+**Trading market allocation**
 
 ``
     GET /data/api/v1/getMarketConfig
@@ -115,7 +115,7 @@ All interface returns are in JSON format
 
 <br/>
 
-** K-line data**
+**K-line data**
 
 ``
     GET /data/api/v1/getKLine
@@ -152,7 +152,7 @@ since | integer | true | 0 | time condition，control increment | first 0, then 
 
 <br/>
 
-** Aggregate Market（Ticker）**
+**Aggregate Market（Ticker）**
 
 ``
     GET /data/api/v1/getTicker
@@ -182,7 +182,7 @@ market | string | true | N/A | Market | btc_usdt, eth_usdt...
 
 <br/>
 
-** Updated request parameters for all markets Ticker**
+**Updated request parameters for all markets Ticker**
 
 ``
     GET /data/api/v1/getTickers
@@ -221,7 +221,7 @@ market | string | true | N/A | Market | btc_usdt, eth_usdt...
 
 <br/>
 
-** Market Depth Data**
+**Market Depth Data**
 
 ``
     GET /data/api/v1/getDepth
@@ -264,7 +264,7 @@ market | string | true | N/A | Trading Market | btc_usdt, eth_usdt...
 
 <br/>
 
-** Recent Market Trading Records **
+**Recent Market Trading Records**
 
 ``
     GET /data/api/v1/getTrades
@@ -367,7 +367,7 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 
 <br/>
 
-** Entrust**
+**Entrust**
 
 ``
     POST /trade/api/v1/order
@@ -401,7 +401,7 @@ entrustType | integer | true | N/A | type of commission sale | 0、limit price�
 
 <br/>
 
-** Batch commissioning**
+**Batch commissioning**
 
 ``
     POST /trade/api/v1/batchOrder
@@ -457,7 +457,7 @@ Note that data participates in signing not the JSON data itself, but STRING afte
 
 <br/>
 
-** Cancel the order**
+**Cancel the order**
 
 ``
     POST /trade/api/v1/cancel
@@ -482,7 +482,7 @@ id | integer | true | N/A | Order ID |
 
 <br/>
 
-** Batch withdrawal**
+**Batch withdrawal**
 
 ``
     POST /trade/api/v1/batchCancel
@@ -535,7 +535,7 @@ Note that data participates in signing not the JSON data itself, but STRING afte
 
 <br/>
 
-** Order information**
+**Order information**
 
 ``
     GET /trade/api/v1/getOrder
@@ -575,7 +575,7 @@ id | integer | true | N/A | Order ID|
 
 <br/>
 
-** Getting an unfinished order**
+**Getting an unfinished order**
 
 ``
     GET /trade/api/v1/getOpenOrders
@@ -630,7 +630,7 @@ pageSize | integer | false | 10 | order number | [10-1000]
 
 <br/>
 
-** Getting multiple order information**
+**Getting multiple order information**
 
 ``
     GET /trade/api/v1/getBatchOrders
@@ -693,7 +693,7 @@ Note that data participates in signing not the JSON data itself, but STRING afte
 
 <br/>
 
-** Get the replenishment address (In testing)**
+**Get the replenishment address (In testing)**
 
 ``
     GET /trade/api/v1/getPayInAddress
@@ -733,7 +733,7 @@ coin | string | true | N/A | Name of currency | btc,eth,ltc...
 
 <br/>
 
-** Get the cash address (In testing)**
+**Get the cash address (In testing)**
 
 ``
     GET /trade/api/v1/getPayOutAddress
@@ -777,7 +777,7 @@ pageSize | integer | true | 10 | number of pages per page|
 
 <br/>
 
-** Getting recharge records (In testing)**
+**Getting deposit records (In testing)**
 
 ``
     GET /trade/api/v1/getPayInRecord
@@ -822,7 +822,7 @@ pageSize | integer | true | 10 | number of pages per page |
 
 <br/>
 
-** Obtain the withdrawal record (In testing)**
+**Obtain the withdrawal record (In testing)**
 
 ``
     GET /trade/api/v1/getPayOutRecord
@@ -863,7 +863,7 @@ pageSize | integer | true | 10 | number of pages per page |
 
 <br/>
 
-** Discount Configuration (In testing)**
+**Withdrawal Configuration (In testing)**
 
 ``
     GET /trade/api/v1/getWithdrawConfig
@@ -899,7 +899,7 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 
 <br/>
 
-** Cash withdrawal (In testing)**
+**Withdrawal (In testing)**
 
 ``
     GET /trade/api/v1/withdraw
