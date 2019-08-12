@@ -576,8 +576,7 @@ id | integer | true | N/A | Order ID|
     "avgPrice": "0.00",             // average transaction price
     "id": 156293034776987,          // order ID
     "time": 1562930348000,          // entrusted time
-    "type": 1,                      // transaction type: 1, purchase 0, sale 
-
+    "type": 1,                      // transaction type: 1, buy 0, sell 
     "status": 3,                    // status  (0、submission uncompleted，1、uncompleted or partial transaction，2、completed，3、cancelled，4、Combined settlement)
     "completeNumber": "0.000000",   // Amount completed
     "completeMoney": "0.000000",    // completed amount
