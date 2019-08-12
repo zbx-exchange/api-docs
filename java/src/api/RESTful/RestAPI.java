@@ -107,7 +107,6 @@ public class RestAPI {
 		map.put("amount", 0.1);
 		map.put("coin", "btc");
 		map.put("safePwd", "123456");
-		map.put("memo", "test by api");
 		map.put("nonce", System.currentTimeMillis());
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
