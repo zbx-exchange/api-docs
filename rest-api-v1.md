@@ -401,7 +401,7 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 market | string | true | N/A | trading market | btc_usdt, eth_usdt...
 price | float | true | N/A | Commission price | 
 number | float | true | N/A | number of commissions | 
-type | integer | true | N/A | type of transaction | 1、purchase 0、sale
+type | integer | true | N/A | type of transaction | 1、buy 0、sell
 entrustType | integer | true | N/A | type of commission sale | 0、limit price，1、market price
 
 
