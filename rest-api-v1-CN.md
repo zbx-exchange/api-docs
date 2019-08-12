@@ -385,9 +385,9 @@ nonce | integer | true | N/A | 13位毫秒数 |
 {
   "code":200,
   "data":[
-  	{"name":"钱包账户","enName":"Wallet Account","id":1},
-  	{"name":"交易账户","enName":"Spot Account","id":2},
-  	{"name":"法币账户","enName":"Fiat Account","id":3}
+  	{"name":"钱包账户","id":1},
+  	{"name":"交易账户","id":2},
+  	{"name":"法币账户","id":3}
   ],
   "info":"success"
 }

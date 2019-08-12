@@ -77,7 +77,7 @@ Status code | Error message
 104 | Failed to place an order owing to unknown exception. Please try again later
 105 | Failed to place an order, the number of orders must not be lower than the minimum number of orders set by the system
 106 | Failed to place an order owing to frequent requests
-107 | Failed to place an order since the trade is not open yet
+107 | Action failed since the trade is not open yet
 108 | Failed to place an order owing to an incorrect trigger price
 109 | Failed to place an order, do not support market order entrustment
 110 | Failed to place an order, do not support stop loss order entrustment
@@ -400,9 +400,9 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 {
   "code":200,
   "data":[
-  	{"name":"钱包账户","enName":"Wallet Account","id":1},
-  	{"name":"交易账户","enName":"Spot Account","id":2},
-  	{"name":"法币账户","enName":"Fiat Account","id":3}
+  	{"name":"Wallet Account","id":1},
+  	{"name":"Spot Account","id":2},
+  	{"name":"Fiat Account","id":3}
   ],
   "info":"success"
 }
@@ -470,7 +470,7 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 from | integer | true | N/A | Account ID | Reference to getAccounts interface
 to | integer | true | N/A | Account ID | Reference to getAccounts interface
 amount | float | true | N/A | Quantity | 
-coin | string | true | N/A | crypto |btc,eth,usdt... 
+coin | string | true | N/A | Coin |btc,eth,usdt... 
 safePwd | string | true | N/A | Security password | 
 
 >Response data
