@@ -69,8 +69,8 @@ All interface returns are in JSON format
 
 ### Error Code
 
-Status code | error message
--|-
+Status code | Error message
+-|:-
 101 | Failed to place an order owing to unknown order type
 102 | Failed to place an order owing to parameter error
 103 | Failed to place an order owing to no sufficient fund
