@@ -344,7 +344,7 @@ market | string | true | N/A | Market | btc_usdt, eth_usdt...
 ```
 <br/>
 
-**Acquisition of account assets**
+**Get Spot Account Assets**
 
 ``
     GET /trade/api/v1/getBalance
@@ -384,6 +384,105 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 ```
 
 <br/>
+
+**Get Account Type (no signature required) request parameters**
+
+``
+    GET /trade/api/v1/getAccounts
+``
+
+>Request parameters
+
+`None`
+
+>Response data
+```js
+{
+  "code":200,
+  "data":[
+  	{"name":"钱包账户","enName":"Wallet Account","id":1},
+  	{"name":"交易账户","enName":"Spot Account","id":2},
+  	{"name":"法币账户","enName":"Fiat Account","id":3}
+  ],
+  "info":"success"
+}
+```
+``
+	Fixed system account type, no real-time access
+``
+
+<br/>
+
+**Get Designated Account Assets**
+
+``
+    GET /trade/api/v1/getFunds
+``
+
+>Request parameters
+
+Parameters | Data Types | Necessity | Default Value | Description | Range of Value
+-|-|-|-|-|-
+accesskey | string | true | N/A | Access key | 
+account | integer | true | N/A | Account ID | Reference to getAccounts interface
+nonce | integer | true | N/A | 13-bit milliseconds | 
+
+>Response data
+```js
+{
+  "code": 200,
+  "data": {
+    "btc": {
+      "freeze": "0.00",     // freeze
+      "available": "0.00"   // available
+    },
+    "eth": {
+      "freeze": "0.00",
+      "available": "0.00"
+    },
+    "usdt": {
+      "freeze": "3062.17437341",
+      "available": "3867.43650012"
+    },
+    "ltc": {
+      "freeze": "0.00",
+      "available": "0.00"
+    }
+  },
+  "info": "success"
+}
+```
+
+<br/>
+
+**Transfer of funds between accounts**
+
+``
+    POST /trade/api/v1/transfer
+``
+
+>Request parameters
+
+Parameters | Data Types | Necessity | Default Value | Description | Range of Value 
+-|-|-|-|-|-
+accesskey | string | true | N/A | Access key | 
+nonce | integer | true | N/A | 13-bit milliseconds | 
+from | integer | true | N/A | Account ID | Reference to getAccounts interface
+to | integer | true | N/A | Account ID | Reference to getAccounts interface
+amount | float | true | N/A | Quantity | 
+coin | string | true | N/A | crypto |btc,eth,usdt... 
+safePwd | string | true | N/A | Security password | 
+
+>Response data
+```js
+{
+	"code":200,
+	"info":"Succeeded"
+}
+```
+
+<br/>
+
 
 **Entrust**
 

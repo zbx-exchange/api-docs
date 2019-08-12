@@ -329,7 +329,7 @@ market | string | true | N/A | 交易市场 | btc_usdt, eth_usdt...
 ```
 <br/>
 
-**获取账户资产**
+**获取交易(现货)账户资产**
 
 ``
     GET /trade/api/v1/getBalance
@@ -365,6 +365,104 @@ nonce | integer | true | N/A | 13位毫秒数 |
     }
   },
   "info": "success"
+}
+```
+
+<br/>
+
+**获取账户类型(不需要签名)**
+
+``
+    GET /trade/api/v1/getAccounts
+``
+
+>请求参数
+
+`None`
+
+>响应数据
+```js
+{
+  "code":200,
+  "data":[
+  	{"name":"钱包账户","enName":"Wallet Account","id":1},
+  	{"name":"交易账户","enName":"Spot Account","id":2},
+  	{"name":"法币账户","enName":"Fiat Account","id":3}
+  ],
+  "info":"success"
+}
+```
+``
+	固定的系统账户类型，不必实时获取
+``
+
+<br/>
+
+**获取指定账户资产**
+
+``
+    GET /trade/api/v1/getFunds
+``
+
+>请求参数
+
+参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
+-|-|-|-|-|-
+accesskey | string | true | N/A | 访问密钥 | 
+account | integer | true | N/A | 账户ID | 参考getAccounts接口
+nonce | integer | true | N/A | 13位毫秒数 | 
+
+>响应数据
+```js
+{
+  "code": 200,
+  "data": {
+    "btc": {
+      "freeze": "0.00",     // 冻结
+      "available": "0.00"   // 可用
+    },
+    "eth": {
+      "freeze": "0.00",
+      "available": "0.00"
+    },
+    "usdt": {
+      "freeze": "3062.17437341",
+      "available": "3867.43650012"
+    },
+    "ltc": {
+      "freeze": "0.00",
+      "available": "0.00"
+    }
+  },
+  "info": "success"
+}
+```
+
+<br/>
+
+**账户间资金划转**
+
+``
+    POST /trade/api/v1/transfer
+``
+
+>请求参数
+
+参数 | 数据类型 | 是否必须 | 默认值 | 描述 | 取值范围  
+-|-|-|-|-|-
+accesskey | string | true | N/A | 访问密钥 | 
+nonce | integer | true | N/A | 13位毫秒数 | 
+from | integer | true | N/A | 账户ID | 参考getAccounts接口
+to | integer | true | N/A | 账户ID | 参考getAccounts接口
+amount | float | true | N/A | 金额 | 
+coin | string | true | N/A | 币种 |btc,eth,usdt... 
+safePwd | string | true | N/A | 安全资金密码 | 
+
+>响应数据
+```js
+{
+	"code":200,
+	"info":"Succeeded"
 }
 ```
 
