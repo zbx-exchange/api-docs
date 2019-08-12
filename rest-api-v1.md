@@ -61,10 +61,32 @@ Finally, the signature is assigned to the parameter name signature and submitted
 
 <br/>
 
-### Return format
+### Return Format
 
 All interface returns are in JSON format
 
+<br/>
+
+### Error Code
+
+Status code | error message
+-|-
+101 | Failed to place an order owing to unknown order type
+102 | Failed to place an order owing to parameter error
+103 | Failed to place an order owing to no sufficient fund
+104 | Failed to place an order owing to unknown exception. Please try again later
+105 | Failed to place an order, the number of orders must not be lower than the minimum number of orders set by the system
+106 | Failed to place an order owing to frequent requests
+107 | Failed to place an order since the trade is not open yet
+108 | Failed to place an order owing to an incorrect trigger price
+109 | Failed to place an order, do not support market order entrustment
+110 | Failed to place an order, do not support stop loss order entrustment
+111 | Failed to place an order owing to beyond system protection price
+121 | Failed to cancel the order since it does not exist or has been canceled
+122 | Failed to cancel the order owing to unknown exception. Please try again later
+123 | Failed to cancel the order since it has been canceled or completed
+124 | Failed to cancel the order owing to frequent requests
+404 | Other errors
 
 <br/>
 
