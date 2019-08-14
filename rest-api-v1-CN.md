@@ -999,7 +999,7 @@ nonce | integer | true | N/A | 13位毫秒数 |
 accesskey | string | true | N/A | 访问密钥 | 
 nonce | integer | true | N/A | 13位毫秒数 | 
 coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-address | string | true | N/A | 提现地址 | 仅支持您在Bision的认证地址
+address | string | true | N/A | 提现地址 | 仅支持您在ZBX的认证地址
 memo | string | false | N/A | Memo | 提现地址memo，如EOS等
 amount | float | true | N/A | 提现数量 | 不能低于当前币种最低提现额度
 innerTransfer | integer | false | 0 | 是否内部地址转账，享受0手续费 | 0、否 1、是
