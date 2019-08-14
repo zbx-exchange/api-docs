@@ -382,6 +382,7 @@ nonce | integer | true | N/A | 13位毫秒数 |
 
 >响应数据
 ```js
+// 固定的系统账户，可直接写死在程序中，不必动态获取
 {
   "code":200,
   "data":[
@@ -392,9 +393,6 @@ nonce | integer | true | N/A | 13位毫秒数 |
   "info":"success"
 }
 ```
-``
-	固定的系统账户类型，不必实时获取
-``
 
 <br/>
 
@@ -786,7 +784,7 @@ data 是一个JSON数组，数组长度最大只支持100个，超出100的会�
 
 <br/>
 
-**获取充值地址(In testing)**
+**获取充值地址**
 
 ``
     GET /trade/api/v1/getPayInAddress
@@ -810,7 +808,7 @@ coin | string | true | N/A | 币种名称 | btc,eth,ltc...
 			"chain": "btc",         //主链币种
 			"address": "1EAEoYaXx93tKgvrfgpna19GPqC4J2Xcp7",  //充值地址
 			"coin": "USDT",         //当前币种
-			"memo": ""
+			"memo": ""				//EOS等币种可能会存在memo
 		}, 
 		{
 			"chainName": "usdt-erc20",
@@ -820,13 +818,13 @@ coin | string | true | N/A | 币种名称 | btc,eth,ltc...
 			"memo": ""
 		}]
 	},
-	"info": "成功"
+	"info": "success"
 }
 ```
 
 <br/>
 
-**获取提现地址(In testing)**
+**获取提现地址**
 
 ``
     GET /trade/api/v1/getPayOutAddress
@@ -852,7 +850,7 @@ pageSize | integer | true | 10 | 每页数量 |
 			"chainName": "ERC-20",      //主链名称
 			"chain": "eth",             //主链币种
 			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862", //提现地址
-			"memo": "",                 
+			"memo": "",    				//EOS等币种可能会存在memo             
 			"coin": "usdt"              //当前币种
 		}, {
 			"chainName": "omni",
@@ -862,13 +860,13 @@ pageSize | integer | true | 10 | 每页数量 |
 			"coin": "usdt"
 		}]
 	},
-	"info": "成功"
+	"info": "success"
 }
 ```
 
 <br/>
 
-**获取充值记录(In testing)**
+**获取充值记录**
 
 ``
     GET /trade/api/v1/getPayInRecord
@@ -896,23 +894,24 @@ pageSize | integer | true | 10 | 每页数量 |
  			"chainName": "ERC-20",      //主链名称
  			"amount": 0.001000000,      //币种数量
  			"chain": "eth",             //主链币种
- 			"address": "0x145e96ff8388e474df8c799fb433f103f42d9462",
+ 			"address": "0x145e96ff8388e474df8c799fb433f103f42d9462",		//EOS等币种存在memo时用'_'隔开
  			"depth": 12,                //确认数
  			"creatTime": 1563465915000,
  			"manageTime": 1563466260000,
  			"txHash": "0x4bcd1207e57dc96737d20198c8792c3340386e7f247571458d17671b7834ddd6", //交易哈希
- 			"status": "success",        //状态
- 			"coin": "usdt"              //当前币种
+ 			"status": 2,       			//0、初始 1、失败 2、成功 5、待确认
+ 			"coin": "usdt",             //当前币种
+ 			"innerTransfer": 0			//是否是内账地址转账的记录
  		}],
  		"pageSize": 100
  	},
- 	"info": "成功"
+ 	"info": "success"
  }
 ```
 
 <br/>
 
-**获取提现记录(In testing)**
+**获取提现记录**
 
 ``
     GET /trade/api/v1/getPayOutRecord
@@ -938,21 +937,22 @@ pageSize | integer | true | 10 | 每页数量 |
 			"chainName": "ERC-20",      //主链名称
 			"amount": 0.002000000,      //币种数量
 			"chain": "eth",             //主链币种
-			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862",    //提现地址
+			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862",    //EOS等币种存在memo时用'_'隔开
 			"creatTime": 1563513678000, //提币时间
 			"fee": 0.001000000,         //手续费
 			"manageTime": 1563513698000,//处理时间
-			"status": 4,
-			"coin": "usdt"
+			"status": 4,				    //0、初始 1、失败/取消 2、成功 4、审核中 5、待确认
+			"coin": "usdt",				//当前币种
+			"innerTransfer": 0			//是否是内账地址转账的记录
 		}]
 	},
-	"info": "成功"
+	"info": "success"
 }
 ```
 
 <br/>
 
-**提现配置(In testing)**
+**提现配置**
 
 ``
     GET /trade/api/v1/getWithdrawConfig
@@ -973,13 +973,11 @@ nonce | integer | true | N/A | 13位毫秒数 |
   "data": {
       "btc": {
           "minAmount": 0.01,    // 单次最小提现数量
-          "maxAmount": 10,      // 日提币额度
-          "fee": 0.0005         // 默认手续费
+          "maxAmount": 10      // 日提币额度
       },
       "eth": {
           "minAmount": 0.1,
-          "maxAmount": 100,
-          "fee": 0.005
+          "maxAmount": 100
       }
   },
   "info": "success"
@@ -988,7 +986,7 @@ nonce | integer | true | N/A | 13位毫秒数 |
 
 <br/>
 
-**提现(In testing)**
+**提现**
 
 ``
     GET /trade/api/v1/withdraw
@@ -1001,10 +999,11 @@ nonce | integer | true | N/A | 13位毫秒数 |
 accesskey | string | true | N/A | 访问密钥 | 
 nonce | integer | true | N/A | 13位毫秒数 | 
 coin | string | true | N/A | 币种名称 | btc,eth,ltc...
-address | string | true | N/A | 提现地址 | 仅支持您在ZBX的认证地址
+address | string | true | N/A | 提现地址 | 仅支持您在Bision的认证地址
+memo | string | false | N/A | Memo | 提现地址memo，如EOS等
 amount | float | true | N/A | 提现数量 | 不能低于当前币种最低提现额度
+innerTransfer | integer | false | 0 | 是否内部地址转账，享受0手续费 | 0、否 1、是
 safePwd | string | true | N/A | 安全密码 | 
-memo | string | false | Null | 备注信息 | 
 
 
 >响应数据
@@ -1012,7 +1011,11 @@ memo | string | false | Null | 备注信息 |
 {
   "code": 200,
   "data": {
-      
+  	  "fees":0.001000000,
+  	  "amount":1,
+  	  "address":"0xb1878d51e4a951e566a8c1bd206264077d959169",
+  	  "id":1001,
+  	  "subTime":1565717647769
   },
   "info": "success"
 }

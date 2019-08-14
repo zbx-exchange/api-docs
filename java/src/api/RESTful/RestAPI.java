@@ -273,5 +273,86 @@ public class RestAPI {
 		System.out.println(text);
 	}
 	
+	// 获取充值记录
+    @Test
+    public void getPayInRecord() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("accesskey", accessKey);
+        map.put("nonce", System.currentTimeMillis());
+        map.put("coin", "eth");
+        map.put("page", 1);
+        map.put("pageSize", 10);
+
+        // 签名
+        String signature = HttpUtil.getSignature(map, secretKey);
+        map.put("signature", signature);
+
+        String text = HttpUtil.get(URL + "/trade/api/v1/getPayInRecord", map);
+        System.out.println(text);
+    }
+
+    // 获取提现记录
+    @Test
+    public void getPayOutRecord() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("accesskey", accessKey);
+        map.put("nonce", System.currentTimeMillis());
+        map.put("coin", "eth");
+        map.put("page", 1);
+        map.put("pageSize", 10);
+        // 签名
+        String signature = HttpUtil.getSignature(map, secretKey);
+        map.put("signature", signature);
+
+        String text = HttpUtil.get(URL + "/trade/api/v1/getPayOutRecord", map);
+        System.out.println(text);
+    }
+
+    // 获取充值地址
+	@Test
+	public void getPayInAddress() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("accesskey", accessKey);
+		map.put("nonce", System.currentTimeMillis());
+		map.put("coin", "eth");
+		// 签名
+		String signature = HttpUtil.getSignature(map, secretKey);
+		map.put("signature", signature);
+
+		String text = HttpUtil.get(URL + "/trade/api/v1/getPayInAddress", map);
+		System.out.println(text);
+	}
+
+	// 获取提现地址
+	@Test
+	public void getPayOutAddress() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("accesskey", accessKey);
+		map.put("nonce", System.currentTimeMillis());
+		map.put("coin", "eth");
+		// 签名
+		String signature = HttpUtil.getSignature(map, secretKey);
+		map.put("signature", signature);
+		String text = HttpUtil.get(URL + "/trade/api/v1/getPayOutAddress", map);
+		System.out.println(text);
+	}
+
+	// 提现
+	@Test
+	public void withdraw() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("accesskey", accessKey);
+		map.put("nonce", System.currentTimeMillis());
+		map.put("coin", "eth");
+		map.put("safePwd", "");
+		map.put("amount", "1");
+		map.put("address", "");
+		// 签名
+		String signature = HttpUtil.getSignature(map, secretKey);
+		map.put("signature", signature);
+		String text = HttpUtil.get(URL + "/trade/api/v1/withdraw", map);
+		System.out.println(text);
+	}
+	
 	// To be continued...
 }

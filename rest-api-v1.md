@@ -320,7 +320,7 @@ market | string | true | N/A | Market | btc_usdt, eth_usdt...
 
 ### Transaction API
 
-**Get server time (no signature required) request parameters**
+**Getting server time (no signature required) request parameters**
 
 ``
     GET /trade/api/v1/getServerTime
@@ -344,7 +344,7 @@ market | string | true | N/A | Market | btc_usdt, eth_usdt...
 ```
 <br/>
 
-**Get Spot Account Assets**
+**Getting Spot Account Assets**
 
 ``
     GET /trade/api/v1/getBalance
@@ -385,7 +385,7 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 
 <br/>
 
-**Get Account Type (no signature required) request parameters**
+**Getting Account Type (no signature required) request parameters**
 
 ``
     GET /trade/api/v1/getAccounts
@@ -397,6 +397,7 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 
 >Response data
 ```js
+//Fixed system account type, it can be fixed in the program without dynamic acquisition.
 {
   "code":200,
   "data":[
@@ -407,13 +408,10 @@ nonce | integer | true | N/A | 13-bit milliseconds |
   "info":"success"
 }
 ```
-``
-	Fixed system account type, no real-time access
-``
 
 <br/>
 
-**Get Designated Account Assets**
+**Getting Designated Account Assets**
 
 ``
     GET /trade/api/v1/getFunds
@@ -598,7 +596,7 @@ id | integer | true | N/A | Order ID |
 
 <br/>
 
-**Batch withdrawal**
+**Batch cancel orders**
 
 ``
     POST /trade/api/v1/batchCancel
@@ -688,7 +686,7 @@ id | integer | true | N/A | Order ID|
 
 <br/>
 
-**Getting an unfinished order**
+**Getting unfinished orders**
 
 ``
     GET /trade/api/v1/getOpenOrders
@@ -804,7 +802,7 @@ Note that data participates in signing not the JSON data itself, but STRING afte
 
 <br/>
 
-**Get the deposit address (In testing)**
+**Getting the deposit address**
 
 ``
     GET /trade/api/v1/getPayInAddress
@@ -826,9 +824,9 @@ coin | string | true | N/A | Name of currency | btc,eth,ltc...
 		"record": [{
 			"chainName": "omni",    // Chain type
 			"chain": "btc",         // main chain currency
-			"address": "1EAEoYaXx93tKgvrfgpna19GPqC4J2Xcp7",  // recharge address
+			"address": "1EAEoYaXx93tKgvrfgpna19GPqC4J2Xcp7",  // deposit address
 			"coin": "USDT",         // current currency
-			"memo": ""
+			"memo": ""				// EOS and other currencies maybe have memo
 		}, 
 		{
 			"chainName": "usdt-erc20",
@@ -844,7 +842,7 @@ coin | string | true | N/A | Name of currency | btc,eth,ltc...
 
 <br/>
 
-**Get the withdraw address (In testing)**
+**Getting the withdraw address**
 
 ``
     GET /trade/api/v1/getPayOutAddress
@@ -871,7 +869,7 @@ pageSize | integer | true | 10 | number of pages per page|
 			"chainName": "ERC-20",      // Main Chain Name
 			"chain": "eth",             // Main Chain Currency
 			"address": "0x8390b456fe03139ba402f45be9110a5fadf7e862", // Cash Address
-			"memo": "",                 
+			"memo": "",                 // EOS and other currencies maybe have memo
 			"coin": "usdt"              // Current Currency
 		}, {
 			"chainName": "omni",
@@ -887,7 +885,7 @@ pageSize | integer | true | 10 | number of pages per page|
 
 <br/>
 
-**Getting deposit records (In testing)**
+**Getting deposit records**
 
 ``
     GET /trade/api/v1/getPayInRecord
@@ -920,8 +918,9 @@ pageSize | integer | true | 10 | number of pages per page |
  			"creatTime": 1563465915000,
  			"manageTime": 1563466260000,
  			"txHash": "0x4bcd1207e57dc96737d20198c8792c3340386e7f247571458d17671b7834ddd6", // Trading Hash
- 			"status": "success",        // Status
- 			"coin": "usdt"              // Current Currency
+ 			"status": 2,       			// 0、submitted 1、failed 2、succeed 5、pend
+ 			"coin": "usdt",             // Current Currency
+ 			"innerTransfer": 0			// Is it a record of internal address transfer?
  		}],
  		"pageSize": 100
  	},
@@ -931,7 +930,7 @@ pageSize | integer | true | 10 | number of pages per page |
 
 <br/>
 
-**Obtain the withdrawal record (In testing)**
+**Obtain the withdrawal record**
 
 ``
     GET /trade/api/v1/getPayOutRecord
@@ -961,8 +960,9 @@ pageSize | integer | true | 10 | number of pages per page |
 			"creatTime": 1563513678000, // Payment Time
 			"fee": 0.001000000,         // Processing Fee
 			"manageTime": 1563513698000,// Processing Time
-			"status": 4,
-			"coin": "usdt"
+			"status": 4,					// 0、submitted 1、failed/cancelled 2、succeed 4、Audit in progress 5、pend
+			"coin": "usdt",				// Current Currency
+			"innerTransfer": 0			// Is it a record of internal address transfer?
 		}]
 	},
 	"info": " Success "
@@ -971,7 +971,7 @@ pageSize | integer | true | 10 | number of pages per page |
 
 <br/>
 
-**Withdrawal Configuration (In testing)**
+**Withdrawal Configuration**
 
 ``
     GET /trade/api/v1/getWithdrawConfig
@@ -992,13 +992,11 @@ nonce | integer | true | N/A | 13-bit milliseconds |
   "data": {
       "btc": {
           "minAmount": 0.01,    // minimum withdrawal amount per time
-          "maxAmount": 10,      // daily withdrawal amount
-          "fee": 0.0005         // default-handling fee
+          "maxAmount": 10      // daily withdrawal amount
       },
       "eth": {
           "minAmount": 0.1,
-          "maxAmount": 100,
-          "fee": 0.005
+          "maxAmount": 100
       }
   },
   "info": "success"
@@ -1007,7 +1005,7 @@ nonce | integer | true | N/A | 13-bit milliseconds |
 
 <br/>
 
-**Withdrawal (In testing)**
+**Withdrawal**
 
 ``
     GET /trade/api/v1/withdraw
@@ -1021,9 +1019,10 @@ accesskey | string | true | N/A | Access key |
 nonce | integer | true | N/A | 13-bit milliseconds | 
 coin | string | true | N/A | currency name | btc,eth,ltc...
 address | string | true | N/A | withdrawal address | only support your authentication address in ZBX
-amount | float | true | N/A | withdrawal number | cannot be lower than the current currency minimum withdrawal security password
+memo | string | false | N/A | Memo | Memo of withdrawal address, such as EOS.
+amount | float | true | N/A | withdrawal number | cannot be lower than the current currency minimum withdrawal amount
+innerTransfer | integer | false | 0 | Internal address transfer, enjoy 0 handling fee | 0.false  1.true
 safePwd | string | true | N/A | Security Code | 
-memo | string | false | Null | note information| 
 
 
 > Response data
@@ -1031,7 +1030,11 @@ memo | string | false | Null | note information|
 {
   "code": 200,
   "data": {
-      
+      "fees":0.001000000,
+  	  "amount":1,
+  	  "address":"0xb1878d51e4a951e566a8c1bd206264077d959169",
+  	  "id":1001,
+  	  "subTime":1565717647769
   },
   "info": "success"
 }
