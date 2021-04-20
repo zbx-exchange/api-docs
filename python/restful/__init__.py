@@ -18,7 +18,7 @@ def getSignature(kwargs: dict, secretKey: str) -> str:
 
 
 class ZbxSDK():
-    URL = "https://api.zbx.com"
+    URL = "https://api.zbx.one"
 
     def __init__(self, accessKey: str, secretKey: str):
         super().__init__()
@@ -146,7 +146,7 @@ class ZbxSDK():
 		map.put("price", "10000.12");
 		map.put("number", "1.23");
 		map.put("type", 1);		// 0.sell 1.buy
-		map.put("entrustType", 0);	// 0.Limited price  1.Market price matching    
+		map.put("entrustType", 0);	// 0.Limited price  1.Market price matching
     '''
 
     def batchOrder(self, market: str, jsonData: str):

@@ -4,7 +4,7 @@
 ### REST API
 
 ``
-https://api.zbx.com
+https://api.zbx.one
 ``
 
 Due to high latency and poor stability, it is not recommended to access the ZBX API by proxy.
@@ -28,7 +28,7 @@ API requests are likely to be tampered with in the process of transmission over 
 
 A legitimate request consists of the following parts:：
 
-Method Request Address: That is to access the server address, such as `api.zbx.com`，such as `api.zbx.com/trade/api/v1/order`。
+Method Request Address: That is to access the server address, such as `api.zbx.one`，such as `api.zbx.one/trade/api/v1/order`。
 
 API Access Key（accesskey）：Access Key in the API Key you applied for.。
 
@@ -45,7 +45,7 @@ Signature (signature)：The value computed by the signature to ensure that the s
 The specification calculates the request for signature because when HMAC is used for signature computation, the results calculated with different contents will be completely different. So before signature calculation, please normalize the request first. Following is an example of querying a request for details of an order:
 
 
-`https://api.zbx.com/trade/api/v1/getOrder?accesskey={AccessKey}&market={Market}&nonce={Timestamp}&id={OrderId}&signature={Signature}`
+`https://api.zbx.one/trade/api/v1/getOrder?accesskey={AccessKey}&market={Market}&nonce={Timestamp}&id={OrderId}&signature={Signature}`
 
 The parameter names are sorted according to the order of ASCII codes, and the parameters are connected by the character "&amp;", for example, the following is the result after sorting：
 

@@ -16,51 +16,51 @@ public class RestAPI {
 	// 网站申请的密钥对
 	private final static String accessKey = "";
 	private final static String secretKey = "";
-	
-	private final static String URL = "https://api.zbx.com";
-	
+
+	private final static String URL = "https://api.zbx.one";
+
 	// 交易市场配置
 	@Test
 	public void getMarketConfig() {
 		String text = HttpUtil.get(URL + "/data/api/v1/getMarketConfig");
 		System.out.println(text);
 	}
-	
+
 	// K线数据
 	@Test
 	public void getKLine() {
 		String text = HttpUtil.get(URL + "/data/api/v1/getKLine?market=btc_usdt&type=1min&since=0");
 		System.out.println(text);
 	}
-	
+
 	// 聚合行情（Ticker）
 	@Test
 	public void getTicker() {
 		String text = HttpUtil.get(URL + "/data/api/v1/getTicker?market=btc_usdt");
 		System.out.println(text);
 	}
-	
+
 	// 所有市场的最新 All Tickers
 	@Test
 	public void getTickers() {
 		String text = HttpUtil.get(URL + "/data/api/v1/getTickers");
 		System.out.println(text);
 	}
-	
+
 	// 市场深度数据 Depth
 	@Test
 	public void getDepth() {
 		String text = HttpUtil.get(URL + "/data/api/v1/getDepth?market=btc_usdt");
 		System.out.println(text);
 	}
-	
+
 	// 最近市场成交记录 Trades
 	@Test
 	public void getTrades() {
 		String text = HttpUtil.get(URL + "/data/api/v1/getTrades?market=btc_usdt");
 		System.out.println(text);
 	}
-	
+
 	// 获取交易账户资产
 	@Test
 	public void getBalance() {
@@ -70,19 +70,19 @@ public class RestAPI {
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		
+
 		String text = HttpUtil.get(URL + "/trade/api/v1/getBalance", map);
 		System.out.println(text);
 	}
-	
-	
+
+
 	// 获取账户类型
 	@Test
 	public void getAccounts() {
 		String text = HttpUtil.get(URL + "/trade/api/v1/getAccounts");
 		System.out.println(text);
 	}
-	
+
 	// 获取指定账户资金
 	@Test
 	public void getFunds() {
@@ -96,7 +96,7 @@ public class RestAPI {
 		String text = HttpUtil.get(URL + "/trade/api/v1/getFunds", map);
 		System.out.println(text);
 	}
-	
+
 	// 划账
 	@Test
 	public void transfer() {
@@ -114,7 +114,7 @@ public class RestAPI {
 		String text = HttpUtil.post(URL + "/trade/api/v1/transfer", map);
 		System.out.println(text);
 	}
-	
+
 	// 委托
 	@Test
 	public void order() {
@@ -129,11 +129,11 @@ public class RestAPI {
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		// 
+		//
 		String text = HttpUtil.post(URL + "/trade/api/v1/order", map);
 		System.out.println(text);
 	}
-	
+
 	// 批量委托
 	@Test
 	public void batchOrder() {
@@ -141,7 +141,7 @@ public class RestAPI {
 		map.put("accesskey", accessKey);
 		map.put("nonce", System.currentTimeMillis());
 		map.put("market", "btc_usdt");
-		
+
 		JSONArray array = new JSONArray();
 		for(int i = 0; i < 10; i++) {
 			JSONObject bid = new JSONObject();
@@ -157,17 +157,17 @@ public class RestAPI {
 		}
 		// put data
 		String data = Base64CoderC.encode(array.toJSONString());
-		
+
 		map.put("data", data);
-		
+
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		// 
+		//
 		String text = HttpUtil.post(URL + "/trade/api/v1/batchOrder", map);
 		System.out.println(text);
 	}
-	
+
 	// 撤单
 	@Test
 	public void cancel() {
@@ -179,11 +179,11 @@ public class RestAPI {
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		
+
 		String text = HttpUtil.post(URL + "/trade/api/v1/cancel", map);
 		System.out.println(text);
 	}
-	
+
 	// 批量撤单
 	@Test
 	public void batchCancel() {
@@ -191,27 +191,27 @@ public class RestAPI {
 		map.put("accesskey", accessKey);
 		map.put("nonce", System.currentTimeMillis());
 		map.put("market", "btc_usdt");
-		
+
 		JSONArray array = new JSONArray();
 		array.add("156387392184493");
 		array.add("156387392184494");
 		array.add("156387392184495");
 		array.add("156387392184496");
 		array.add("156387392184497");
-		
+
 		// put data
 		String data = Base64CoderC.encode(array.toJSONString());
-		
+
 		map.put("data", data);
-		
+
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		// 
+		//
 		String text = HttpUtil.post(URL + "/trade/api/v1/batchCancel", map);
 		System.out.println(text);
 	}
-	
+
 	// 获取订单
 	@Test
 	public void getOrder() {
@@ -223,11 +223,11 @@ public class RestAPI {
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		
+
 		String text = HttpUtil.get(URL + "/trade/api/v1/getOrder", map);
 		System.out.println(text);
 	}
-	
+
 	// 获取未完成的订单
 	@Test
 	public void getOpenOrders() {
@@ -237,15 +237,15 @@ public class RestAPI {
 		map.put("market", "btc_usdt");
 		map.put("page", 1);
 		map.put("pageSize", 10);
-		
+
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		
+
 		String text = HttpUtil.get(URL + "/trade/api/v1/getOpenOrders", map);
 		System.out.println(text);
 	}
-	
+
 	// 批量获取订单
 	@Test
 	public void getBatchOrders() {
@@ -253,26 +253,26 @@ public class RestAPI {
 		map.put("accesskey", accessKey);
 		map.put("nonce", System.currentTimeMillis());
 		map.put("market", "btc_usdt");
-		
+
 		JSONArray array = new JSONArray();
 		array.add("156387392184493");
 		array.add("156387392184494");
 		array.add("156387392184495");
 		array.add("156387392184496");
 		array.add("156387392184497");
-		
+
 		// put data
 		String data = Base64CoderC.encode(array.toJSONString());
-		
+
 		map.put("data", data);
 		// 签名
 		String signature = HttpUtil.getSignature(map, secretKey);
 		map.put("signature", signature);
-		
+
 		String text = HttpUtil.get(URL + "/trade/api/v1/getBatchOrders", map);
 		System.out.println(text);
 	}
-	
+
 	// 获取充值记录
     @Test
     public void getPayInRecord() {
@@ -353,6 +353,6 @@ public class RestAPI {
 		String text = HttpUtil.get(URL + "/trade/api/v1/withdraw", map);
 		System.out.println(text);
 	}
-	
+
 	// To be continued...
 }

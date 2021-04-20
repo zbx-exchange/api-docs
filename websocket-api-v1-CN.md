@@ -3,7 +3,7 @@
 ### WEBSOCKET API
 
 ``
-wss://ws.zbx.com/websocket
+wss://ws.zbx.one/websocket
 ``
 
 
