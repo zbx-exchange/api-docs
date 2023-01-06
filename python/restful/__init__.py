@@ -18,7 +18,7 @@ def getSignature(kwargs: dict, secretKey: str) -> str:
 
 
 class ZbxSDK():
-    URL = "https://api.zbx.one"
+    URL = "https://api.zbx.com"
 
     def __init__(self, accessKey: str, secretKey: str):
         super().__init__()

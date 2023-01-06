@@ -17,7 +17,7 @@ public class RestAPI {
 	private final static String accessKey = "";
 	private final static String secretKey = "";
 
-	private final static String URL = "https://api.zbx.one";
+	private final static String URL = "https://api.zbx.com";
 
 	// 交易市场配置
 	@Test

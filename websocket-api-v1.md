@@ -4,7 +4,7 @@
 ### WEBSOCKET API
 
 ``
-wss://ws.zbx.one/websocket
+wss://ws.zbx.com/websocket
 ``
 
 
