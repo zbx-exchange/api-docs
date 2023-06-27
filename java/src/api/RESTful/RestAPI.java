@@ -61,7 +61,7 @@ public class RestAPI {
 		System.out.println(text);
 	}
 
-	// 获取交易账户资产
+	// 获取账户资产
 	@Test
 	public void getBalance() {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -72,28 +72,6 @@ public class RestAPI {
 		map.put("signature", signature);
 
 		String text = HttpUtil.get(URL + "/trade/api/v1/getBalance", map);
-		System.out.println(text);
-	}
-
-
-	// 获取账户类型
-	@Test
-	public void getAccounts() {
-		String text = HttpUtil.get(URL + "/trade/api/v1/getAccounts");
-		System.out.println(text);
-	}
-
-	// 获取指定账户资金
-	@Test
-	public void getFunds() {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("accesskey", accessKey);
-		map.put("account", 1);
-		map.put("nonce", System.currentTimeMillis());
-		// 签名
-		String signature = HttpUtil.getSignature(map, secretKey);
-		map.put("signature", signature);
-		String text = HttpUtil.get(URL + "/trade/api/v1/getFunds", map);
 		System.out.println(text);
 	}
 
